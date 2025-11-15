@@ -1,0 +1,35 @@
+{
+  "name": "x402-demo",
+  "version": "1.0.0",
+  "description": "A Battle's End inspired x402 demo showcasing paywalled storytelling with membership tiers.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [
+    "x402",
+    "paywall",
+    "nextjs",
+    "battle",
+    "membership"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^15.5.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "x402": "^0.7.2",
+    "x402-next": "^0.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/react": "19.2.5",
+    "eslint": "^9.9.0",
+    "eslint-config-next": "^15.5.6",
+    "typescript": "^5.4.6"
+  }
+}
