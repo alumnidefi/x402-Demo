@@ -20,6 +20,8 @@ export default function StoriesPage() {
             tag={article.tag}
             date={article.date}
             href={`/stories/${article.slug}`}
+            badge={article.badge}
+            price={article.price}
           />
         ))}
       </div>
