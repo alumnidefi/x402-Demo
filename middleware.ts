@@ -24,7 +24,7 @@ const paywallConfig = {
 
 const routes = {
   "/stories/*": {
-    price: "$1.00",
+    price: "$0.01",
     network,
     config: {
       description: "Access to a tactical briefing with The Battle's End newsroom",
