@@ -5,11 +5,11 @@ export default function HeroSection() {
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-copy">
-          <p className="pill hero-pill">The Battle's End Dispatch</p>
-          <h1>Strategic hoops coverage in garnet and white.</h1>
+          <p className="pill hero-pill">Your Favorite Sports Coverage</p>
+          <h1>Clean garnet + gold storytelling without the noise.</h1>
           <p>
-            Each dispatch has its own curated toll—$0.05 flashes and a $5 Premium Drop that unlocks Coach Norvell’s dossier.
-            The clean palette mirrors the TBE aesthetic without calling out the payment tech.
+            Each dispatch has its own curated toll—$0.05 flashes and a $5 Premium Drop highlighting Coach Norvell.
+            The white canvas keeps the experience light while the garnet accent keeps it bold.
           </p>
           <div className="hero-meta">
             <div>
@@ -26,7 +26,7 @@ export default function HeroSection() {
           <p className="hero-panel-label">Live premium drop</p>
           <h4>Coach Norvell on the Hotseat</h4>
           <p>
-            Decide whether Norvell survives the boosters’ scrutiny. One $5 payment opens the dossier and the locker-room tapes.
+            Deciding whether Norvell survives the boosters’ scrutiny? One $5 payment opens the dossier and locker-room tape.
           </p>
           <div className="hero-panel-footer">
             <span>Live premium access</span>
