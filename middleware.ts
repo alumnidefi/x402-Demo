@@ -1,4 +1,5 @@
 import { Address } from "viem";
+import { NextRequest } from "next/server";
 import { paymentMiddleware, Network, Resource } from "x402-next";
 
 const payTo = process.env.RESOURCE_WALLET_ADDRESS as Address | undefined;
@@ -31,7 +32,23 @@ const routes = {
 
 const facilitator = facilitatorUrl ? { url: facilitatorUrl } : undefined;
 
-export const middleware = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
+const paywall = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
+
+const sanitizeRequest = (request: NextRequest) => {
+  const headers = new Headers(request.headers);
+  headers.delete("x-payment");
+
+  return new Proxy(request, {
+    get(target, prop, receiver) {
+      if (prop === "headers") {
+        return headers;
+      }
+      return Reflect.get(target, prop, receiver);
+    },
+  }) as NextRequest;
+};
+
+export const middleware = (request: NextRequest) => paywall(sanitizeRequest(request));
 
 export const config = {
   matcher: ["/stories/:path*"],
