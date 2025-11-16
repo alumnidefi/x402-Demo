@@ -100,26 +100,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section--video">
-        <div className="section-heading">
-          <div>
-            <p className="pill">Free YouTube drop</p>
-            <h2>Bonus sports film, paywall-free</h2>
-          </div>
-          <p>Enjoy a free highlight reel with commentary, then pay only for the stories you want.</p>
-        </div>
-        <div className="video-card video-card--embed">
-          <iframe
-            width="100%"
-            height="360"
-            src="https://youtube.com/shorts/BkUDrsSI2vs"
-            title="Sports highlight"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
-      </section>
-
       <section className="section section--membership">
         <div className="section-heading">
           <div>
