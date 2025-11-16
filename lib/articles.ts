@@ -38,7 +38,7 @@ An hour later the convoy turns. The watchman on the tower radios a terse confirm
     date: "December 2025 // Coachroom",
     tag: "Spotlight",
     badge: "Premium Drop",
-    price: "$1.00",
+    price: "$5.00",
     body: `
 ## Locker Room Pressure
 Norvell's statements are measured, but the tension between staff and boosters is wide enough to rewrite headlines. We hear from insiders about late-night huddles and guard rotations that have already raised eyebrows.

@@ -14,9 +14,8 @@ export default function MembershipPage() {
       <div className="card">
         <h3>Elevate your patrol</h3>
         <p className="muted">
-          When you subscribe, x402 powers the recurring payments and lets you focus on the story. We bill through Coinbase
-          x402 facilitation on the Base Sepolia testnet so you can preview live crypto settlement before going into
-          production.
+          When you subscribe, recurring billing is handled securely so you can focus on the story. This tiered system lets
+          you preview live settlement before moving into production.
         </p>
         <ul className="stack" style={{ marginTop: "1.5rem" }}>
           <li>Auto-renewing tiers with early access to drop-ins.</li>
@@ -24,8 +23,8 @@ export default function MembershipPage() {
           <li>Member-only channels replete with strategic briefs.</li>
         </ul>
         <p className="muted" style={{ marginTop: "1rem" }}>
-          Payment handled by x402 middleware, referencing `{process.env.NETWORK || "base-sepolia"}` and your configured
-          wallet. Switch to your live wallet address, connect a facilitator, and let the paywall guard content for you.
+          We honor your chosen wallet and network with securely configured routing so the paywall protects premium content
+          without you having to manage low-level details.
         </p>
       </div>
     </section>

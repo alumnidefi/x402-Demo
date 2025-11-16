@@ -47,8 +47,8 @@ export default function HomePage() {
             <h2>Menu of locked dispatches</h2>
           </div>
           <p>
-            Each dispatch drops with its own x402 price. Click through to the paywall, authorize the
-            signature, and the article greys back into focus.
+            Each dispatch comes with its own curated toll. Click through to the premium gate,
+            authorize the signature, and the article greys back into focus.
           </p>
         </div>
         <div className="article-grid">
@@ -89,11 +89,31 @@ export default function HomePage() {
             <p>Behind-the-scenes film sessions, burner phones, and why $0.05 unlocks the next twist the studio producers arent publishing on the main channel.</p>
           </div>
           <footer>
-            <span className="muted">Base Sepolia  x402 facilitator</span>
+            <span className="muted">Live premium stream</span>
             <Link href="/stories/youtube-strategy-session" className="video-cta">
-              Unlock video  $0.05
+              Unlock video · $0.05
             </Link>
           </footer>
+        </div>
+      </section>
+
+      <section className="section section--video">
+        <div className="section-heading">
+          <div>
+            <p className="pill">Free YouTube drop</p>
+            <h2>Bonus sports film, paywall-free</h2>
+          </div>
+          <p>Enjoy a free highlight reel with commentary, then pay only for the stories you want.</p>
+        </div>
+        <div className="video-card video-card--embed">
+          <iframe
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/wPE1IOjN6us"
+            title="Sports highlight"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       </section>
 

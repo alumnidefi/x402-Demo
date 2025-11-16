@@ -5,33 +5,31 @@ export default function HeroSection() {
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-copy">
-          <p className="pill">The Battle's End  x402 Dispatch</p>
-          <h1>
-            Modern investigative hoops reporting with builder-grade paywalls.
-          </h1>
+          <p className="pill hero-pill">The Battle's End Dispatch</p>
+          <h1>Strategic hoops coverage in garnet and white.</h1>
           <p>
-            Stories drop behind curated tolls - $0.05 flashes and a $1 Norvell dossier - so you only pay for what you care about.
-            The black-and-gold aesthetic nods to the briefing room while the layout stays clean and modern.
+            Each dispatch has its own curated toll—$0.05 flashes and a $5 Premium Drop that unlocks Coach Norvell’s dossier.
+            The clean palette mirrors the TBE aesthetic without calling out the payment tech.
           </p>
           <div className="hero-meta">
             <div>
               <strong>$0.05</strong>
-              Basketball headlines & recruiting flashes
+              Recruiting flashes & basketball headlines
             </div>
             <div>
-              <strong>$1.00</strong>
-              Coach Norvell on the Hotseat
+              <strong>$5.00</strong>
+              Premium Drop: Coach Norvell
             </div>
           </div>
         </div>
         <div className="hero-panel">
-          <p className="hero-panel-label">Live paywall</p>
+          <p className="hero-panel-label">Live premium drop</p>
           <h4>Coach Norvell on the Hotseat</h4>
           <p>
-            Decide today whether the coach keeps his seat or the boosters lose patience. $1 unlocks the full dossier and behind-the-scenes chatter.
+            Decide whether Norvell survives the boosters’ scrutiny. One $5 payment opens the dossier and the locker-room tapes.
           </p>
           <div className="hero-panel-footer">
-            <span>Base Sepolia - x402 facilitator</span>
+            <span>Live premium access</span>
             <Link href="/stories/coach-norvell-hotseat" className="hero-cta">
               Open paywall
             </Link>

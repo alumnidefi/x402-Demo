@@ -18,8 +18,8 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
           <h2>{article?.title}</h2>
         </div>
         <p>
-          x402 protects this route with a $1 Base-Sepolia payment requirement. After settlement is confirmed by the
-          facilitator, the response will carry an `X-PAYMENT-RESPONSE` header with the transaction details.
+          This story lives behind a premium gate. Once settlement is confirmed you'll see the unlocked dispatch
+          and a confirmation header in the response.
         </p>
       </div>
       <article className="card">
@@ -36,8 +36,8 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
       </article>
       <div className="card" style={{ marginTop: "2rem" }}>
         <p className="muted">
-          Need to switch wallets? Update `RESOURCE_WALLET_ADDRESS` and `NETWORK` in your `.env` file. This paywall runs on
-          Base-Sepolia testnet through the default x402 facilitator at `https://x402.org/facilitator`.
+          Need to switch wallets? Update `RESOURCE_WALLET_ADDRESS` and `NETWORK` in your `.env` file. Point to the
+          configuration you trust and keep your premium content guarded the way you like.
         </p>
         <Link href="/membership" className="cta-button">
           See membership tiers

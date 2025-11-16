@@ -9,24 +9,16 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "The Battle's End — x402 Paywall Demo",
+  title: "The Battle's End — Premium Dispatches",
   description:
-    "An x402-powered newsstand modeled after The Battle's End. Explore memberships, pay-per-article access, and live payments in test mode.",
-  keywords: [
-    "x402",
-    "paywall",
-    "battle",
-    "the battles end",
-    "nextjs",
-    "membership",
-    "crypto payments",
-  ],
+    "A Battle's End inspired paywall for recruiting, basketball, and investigative dispatches. Explore tiered membership and pay-per-article drops.",
+  keywords: ["paywall", "battle", "the battles end", "membership", "premium media"],
   openGraph: {
-    title: "The Battle's End x402 Demo",
+    title: "The Battle's End Premium Dispatches",
     description:
-      "Pay for premium storytelling with x402, complete with membership tiers and a live test facilitator endpoint.",
+      "Pay for premium storytelling, membership tiers, and curated paywall drops inspired by Battle's End.",
     url: "https://thebattlesend-demo.vercel.app",
-    siteName: "The Battle's End x402 Demo",
+    siteName: "The Battle's End Premium Dispatches",
     locale: "en_US",
     type: "website",
   },
@@ -35,7 +27,7 @@ export const metadata: Metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

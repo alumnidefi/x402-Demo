@@ -9,7 +9,7 @@ export default function StoriesPage() {
           <p className="pill">Stories</p>
           <h2>Pay-per-article briefing</h2>
         </div>
-        <p>Click through to a live paywall, complete the x402 flow, and unlock a base-sepolia testnet dispatch.</p>
+        <p>Click through to a live gate, complete the payment, and unlock the dispatch with the same wallet each time.</p>
       </div>
       <div className="article-grid">
         {premiumArticles.map((article) => (
