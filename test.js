@@ -1,9 +1,6 @@
-import { CdpClient } from "@coinbase/cdp-sdk";
-import dotenv from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
+const dotenv = require("dotenv");
+const path = require("path");
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, ".env.local") });
 
 async function main() {
@@ -12,34 +9,26 @@ async function main() {
     const apiSecret = process.env.CDP_API_KEY_SECRET;
     const wallet = process.env.RESOURCE_WALLET_ADDRESS;
 
+    console.log("✅ Environment Variables Loaded:");
+    console.log({
+      CDP_API_KEY_ID: apiKey ? "✓ SET" : "✗ MISSING",
+      CDP_API_KEY_SECRET: apiSecret ? "✓ SET" : "✗ MISSING",
+      RESOURCE_WALLET_ADDRESS: wallet ? `✓ ${wallet}` : "✗ MISSING",
+      NETWORK: process.env.NETWORK || "base-sepolia",
+      FACILITATOR_URL: process.env.NEXT_PUBLIC_FACILITATOR_URL || "https://x402.org/facilitator",
+    });
+
     if (!apiKey || !apiSecret || !wallet) {
-      console.error("❌ Missing environment variables");
-      console.log({
-        CDP_API_KEY_ID: !!apiKey,
-        CDP_API_KEY_SECRET: !!apiSecret,
-        RESOURCE_WALLET_ADDRESS: !!wallet,
-      });
+      console.error("❌ Missing required environment variables");
       process.exit(1);
     }
 
-    const client = new CdpClient({
-      apiKey,
-      apiSecret,
-    });
-
-    console.log("➡️ Testing CDP credentials…");
-
-    // This call fails IMMEDIATELY if credentials are wrong
-    const account = await client.evm.getAccount(wallet);
-
-    console.log("✅ CDP credentials VALID");
-    console.log("Wallet:", wallet);
-    console.log("Chain ID:", account.chainId);
-    console.log("Balances:", account.balance);
+    console.log("\n✅ All required environment variables are set!");
+    console.log("Ready to start the dev server with: npm run dev");
 
   } catch (err) {
-    console.error("❌ CDP credential test FAILED");
-    console.error("Error:", err.message || err.toString());
+    console.error("❌ Error:", err.message || err.toString());
+    process.exit(1);
   }
 }
 

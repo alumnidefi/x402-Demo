@@ -38,11 +38,11 @@ const facilitator = { url: facilitatorUrl as `${string}://${string}` };
 
 const paywall = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
 
-export const middleware = (request: NextRequest) => {
+export const middleware = async (request: NextRequest) => {
   const pathname = request.nextUrl?.pathname || "unknown";
   try {
     console.log(`[x402 paywall] Processing: ${pathname}`);
-    const response = paywall(request);
+    const response = await paywall(request);
     console.log(`[x402 paywall] ✓ Paywall middleware executed for: ${pathname}`);
     return response;
   } catch (err) {
