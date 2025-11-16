@@ -1,0 +1,3 @@
+
+
+curl "https://x402-demo-beta.vercel.app/api/x402/session-token" -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"addresses":["0x98F8f2ac1818FCbFb7Eb95A322C06bD1A0aC7304"]}'

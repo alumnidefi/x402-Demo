@@ -1,6 +1,6 @@
 import { Address } from "viem";
 import { NextRequest } from "next/server";
-import { paymentMiddleware, Network, Resource } from "x402-next";
+import { paymentMiddleware, Network } from "x402-next";
 
 const payTo = process.env.RESOURCE_WALLET_ADDRESS as Address | undefined;
 
@@ -9,14 +9,18 @@ if (!payTo) {
 }
 
 const network = (process.env.NETWORK ?? "base-sepolia") as Network;
-const sessionTokenEndpoint = process.env.NEXT_PUBLIC_X402_SESSION_TOKEN_PATH ?? "/api/x402/session-token";
-const facilitatorUrl = process.env.NEXT_PUBLIC_FACILITATOR_URL as Resource | undefined;
+const facilitatorUrl = process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://x402.org/facilitator";
+
+console.log("[x402 config] Initialized with:");
+console.log("  - payTo:", payTo);
+console.log("  - network:", network);
+console.log("  - facilitator:", facilitatorUrl);
 
 const paywallConfig = {
   appName: "The Battle's End x402 Demo",
   appLogo: "/logo.svg",
-  sessionTokenEndpoint,
-  cdpClientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY,
+  sessionTokenEndpoint: "/api/x402/session-token",
+  cdpClientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || "thebattlesend-demo",
 };
 
 const routes = {
@@ -35,10 +39,19 @@ const facilitator = facilitatorUrl ? { url: facilitatorUrl } : undefined;
 const paywall = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
 
 export const middleware = (request: NextRequest) => {
-  request.headers.delete("x-payment");
-  return paywall(request);
+  const pathname = request.nextUrl?.pathname || "unknown";
+  try {
+    console.log(`[x402 paywall] Processing: ${pathname}`);
+    const response = paywall(request);
+    console.log(`[x402 paywall] ✓ Paywall middleware executed for: ${pathname}`);
+    return response;
+  } catch (err) {
+    console.error(`[x402 paywall] ✗ Error processing ${pathname}:`, err instanceof Error ? err.message : String(err));
+    throw err;
+  }
 };
 
 export const config = {
   matcher: ["/stories/:path*"],
+  runtime: "nodejs",
 };
