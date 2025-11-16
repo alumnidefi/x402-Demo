@@ -91,6 +91,10 @@ body {
   gap: 1.5rem;
 }
 
+.mobile-bio {
+  font-size: 0.95rem;
+}
+
 .hero {
   padding: clamp(2.5rem, 4vw, 4rem);
 }
@@ -309,5 +313,18 @@ body {
 
   .article-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-panel {
+    padding: 1.5rem;
+  }
+
+  .video-card {
+    padding: 1.5rem;
   }
 }

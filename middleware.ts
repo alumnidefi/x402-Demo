@@ -1,5 +1,6 @@
 import { Address } from "viem";
 import { paymentMiddleware, Network, Resource } from "x402-next";
+import { NextRequest, NextResponse } from "next/server";
 import { premiumArticles } from "./lib/articles";
 
 const payTo = process.env.RESOURCE_WALLET_ADDRESS as Address | undefined;
@@ -40,7 +41,39 @@ const routes = Object.fromEntries(
 const facilitator = { url: facilitatorUrl };
 
 // Call paymentMiddleware directly - it returns the middleware function
-export const middleware = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
+const paywallHandler = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
+
+const PAID_COOKIE_PREFIX = "x402-paid-";
+
+function resolveSlug(pathname: string) {
+  const match = pathname.match(/^\/stories\/([^/]+)/);
+  return match ? match[1] : null;
+}
+
+export async function middleware(request: NextRequest) {
+  const slug = resolveSlug(request.nextUrl.pathname);
+  if (slug) {
+    const paidReceipt = request.cookies.get(`${PAID_COOKIE_PREFIX}${slug}`)?.value;
+    if (paidReceipt) {
+      return NextResponse.next();
+    }
+  }
+
+  const response = await paywallHandler(request);
+
+  if (slug && response.headers.get("x-payment-response") && response.status === 200) {
+    response.cookies.set({
+      name: `${PAID_COOKIE_PREFIX}${slug}`,
+      value: response.headers.get("x-payment-response") ?? "",
+      path: `/stories/${slug}`,
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 60 * 60,
+    });
+  }
+
+  return response;
+}
 
 export const config = {
   matcher: ["/stories/:path*"],
