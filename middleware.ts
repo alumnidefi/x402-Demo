@@ -9,7 +9,7 @@ if (!payTo) {
 }
 
 const network = (process.env.NETWORK ?? "base-sepolia") as Network;
-const facilitatorUrl = process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://x402.org/facilitator";
+const facilitatorUrl = process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://www.x402.org/facilitator";
 
 console.log("[x402 config] Initialized with:");
 console.log("  - payTo:", payTo);
@@ -36,20 +36,8 @@ const routes = {
 
 const facilitator = { url: facilitatorUrl as `${string}://${string}` };
 
-const paywall = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
-
-export const middleware = async (request: NextRequest) => {
-  const pathname = request.nextUrl?.pathname || "unknown";
-  try {
-    console.log(`[x402 paywall] Processing: ${pathname}`);
-    const response = await paywall(request);
-    console.log(`[x402 paywall] ✓ Paywall middleware executed for: ${pathname}`);
-    return response;
-  } catch (err) {
-    console.error(`[x402 paywall] ✗ Error processing ${pathname}:`, err instanceof Error ? err.message : String(err));
-    throw err;
-  }
-};
+// Call paymentMiddleware directly - it returns the middleware function
+export const middleware = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
 
 export const config = {
   matcher: ["/stories/:path*"],
