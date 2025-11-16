@@ -1,5 +1,6 @@
 import { Address } from "viem";
 import { paymentMiddleware, Network, Resource } from "x402-next";
+import { premiumArticles } from "./lib/articles";
 
 const payTo = process.env.RESOURCE_WALLET_ADDRESS as Address | undefined;
 
@@ -22,16 +23,19 @@ const paywallConfig = {
   cdpClientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || "thebattlesend-demo",
 };
 
-const routes = {
-  "/stories/*": {
-    price: "$0.01",
-    network,
-    config: {
-      description: "Access to a tactical briefing with The Battle's End newsroom",
-      mimeType: "text/html",
+const routes = Object.fromEntries(
+  premiumArticles.map((article) => [
+    `/stories/${article.slug}`,
+    {
+      price: article.price,
+      network,
+      config: {
+        description: article.excerpt,
+        mimeType: "text/html",
+      },
     },
-  },
-};
+  ])
+);
 
 const facilitator = { url: facilitatorUrl };
 

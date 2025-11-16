@@ -38,7 +38,34 @@ export default function HomePage() {
     <>
       <HeroSection />
 
-      <section className="section">
+      <section className="section section--compressed">
+        <div className="section-heading">
+          <div>
+            <p className="pill">Paywall issues</p>
+            <h2>Menu of locked dispatches</h2>
+          </div>
+          <p>
+            Each dispatch drops with its own x402 price. Click through to the paywall, authorize the
+            signature, and the article greys back into focus.
+          </p>
+        </div>
+        <div className="article-grid">
+          {premiumArticles.map((article) => (
+            <ArticleCard
+              key={article.slug}
+              title={article.title}
+              excerpt={article.excerpt}
+              tag={article.tag}
+              date={article.date}
+              href={`/stories/${article.slug}`}
+              badge={article.badge}
+              price={article.price}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="section section--membership">
         <div className="section-heading">
           <div>
             <p className="pill">Membership</p>
@@ -55,31 +82,6 @@ export default function HomePage() {
               tagline={tier.tagline}
               perks={tier.perks}
               accent={tier.accent}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-heading">
-          <div>
-            <p className="pill">Paywall Preview</p>
-            <h2>Sample pay-per-article issue</h2>
-          </div>
-          <p>
-            x402 takes care of routing your payment info while the middleware keeps stories locked until the toll is paid.
-          </p>
-        </div>
-        <div className="article-grid">
-          {premiumArticles.map((article) => (
-            <ArticleCard
-              key={article.slug}
-              title={article.title}
-              excerpt={article.excerpt}
-              tag={article.tag}
-              date={article.date}
-              href={`/stories/${article.slug}`}
-              badge="Expires in 24h"
             />
           ))}
         </div>
