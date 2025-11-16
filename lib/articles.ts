@@ -24,7 +24,7 @@ export const premiumArticles: Article[] = [
 Smoke curls above the ridgeline as we roll in. The settlement is a patchwork of terraced bunkers, each lit by lantern flame, each watching the river corridor from the Friedmann Ridge.
 
 ## Tactical Consensus
-Today’s council meets in the northern bunker. Scouts report a convoy crawling along the old interstate. Every snare and sensor is in place, but the real battle is for attention. Whoever can tell the story first controls the narrative.
+Todays council meets in the northern bunker. Scouts report a convoy crawling along the old interstate. Every snare and sensor is in place, but the real battle is for attention. Whoever can tell the story first controls the narrative.
 
 ## The Final Note
 An hour later the convoy turns. The watchman on the tower radios a terse confirmation, the kind only a steady hand can send. This dispatch is for the readers who step over the rope line.
@@ -54,7 +54,7 @@ One more slip and the board is expected to move. This long-form report breaks do
     slug: "recruiting-roundup",
     title: "Recruiting Roundup: The Quiet Sprint",
     excerpt:
-      "A rapid-fire thread of new recruits, midnight dinners, and the analytics the coaches aren’t sharing with the press.",
+      "A rapid-fire thread of new recruits, midnight dinners, and the analytics the coaches arent sharing with the press.",
     date: "December 2025 // Recruiting Desk",
     tag: "Recruiting",
     price: "$0.05",
@@ -63,7 +63,7 @@ One more slip and the board is expected to move. This long-form report breaks do
 Our crew catalogues the latest offers, midnight recruit dinners, and the intangible traits the floor staff is tracking.
 
 ## Eyes on the Rim
-Coaches rate discipline, shot arcs, and poise; we share the charts they don’t post elsewhere.
+Coaches rate discipline, shot arcs, and poise; we share the charts they dont post elsewhere.
 `,
   },
   {
@@ -76,7 +76,7 @@ Coaches rate discipline, shot arcs, and poise; we share the charts they don’t 
     price: "$0.05",
     body: `
 1. Injuries are creeping into the second unit, forcing lineup resets.
-2. A hush-hush three-point clinic has shifted the league’s efficiency rate by 4% this week.
+2. A hush-hush three-point clinic has shifted the leagues efficiency rate by 4% this week.
 3. Defense-first teams are posting higher possession values after the new analytics board update.
 4. Overseas transfers are lining up for spring workouts with our staff.
 5. Momentum is currency; this flash report shows who is hoarding it.
@@ -86,7 +86,7 @@ Coaches rate discipline, shot arcs, and poise; we share the charts they don’t 
     slug: "youtube-strategy-session",
     title: "YouTube Strategy Session",
     excerpt:
-      "A paywalled video wrap capturing the locker room tape, boardroom leaks, and the narrative the program doesn’t want you to see.",
+      "A paywalled video wrap capturing the locker room tape, boardroom leaks, and the narrative the program doesnt want you to see.",
     date: "February 2026 // Video Briefing",
     tag: "Video",
     price: "$0.05",

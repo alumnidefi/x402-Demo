@@ -77,7 +77,7 @@ export default function HomePage() {
         </div>
         <div className="video-card">
           <Image
-            src="https://images.unsplash.com/photo-1501527455-6a5ee0bcbc5d?auto=format&fit=crop&w=1200&q=80"
+            src="https://images.unsplash.com/photo-1501527455-6a5ee0bcbc5d-auto=format&fit=crop&w=1200&q=80"
             alt="Studio lighting and monitor"
             width={1200}
             height={800}
@@ -86,12 +86,12 @@ export default function HomePage() {
           <div>
             <p className="pill">YouTube briefing</p>
             <h3>Paywalled video: Transfer rumblings</h3>
-            <p>Behind-the-scenes film sessions, burner phones, and why $0.05 unlocks the next twist the studio producers aren’t publishing on the main channel.</p>
+            <p>Behind-the-scenes film sessions, burner phones, and why $0.05 unlocks the next twist the studio producers arent publishing on the main channel.</p>
           </div>
           <footer>
-            <span className="muted">Base Sepolia · x402 facilitator</span>
+            <span className="muted">Base Sepolia  x402 facilitator</span>
             <Link href="/stories/youtube-strategy-session" className="video-cta">
-              Unlock video – $0.05
+              Unlock video  $0.05
             </Link>
           </footer>
         </div>
