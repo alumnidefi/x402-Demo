@@ -166,6 +166,11 @@ body {
   font-size: 0.9rem;
 }
 
+.hero-panel-footer span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .hero-cta {
   border: none;
   border-radius: 999px;
@@ -174,6 +179,13 @@ body {
   color: #101010;
   font-weight: 600;
   cursor: pointer;
+}
+
+.hero-cta {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .article-card {
@@ -225,6 +237,55 @@ body {
   margin-top: 0;
 }
 
+.video-section {
+  padding-top: 0;
+  margin-top: 3rem;
+}
+
+.video-card {
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  background: radial-gradient(circle at top left, rgba(216, 176, 83, 0.2), transparent 55%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.video-card .video-thumb {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  height: 220px;
+  background: #000;
+}
+
+.video-card footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.video-card .pill {
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 0;
+}
+
+.video-cta {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.35rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #050505;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.video-cta:hover {
+  transform: translateY(-2px);
+}
 .muted {
   color: var(--contrast);
 }

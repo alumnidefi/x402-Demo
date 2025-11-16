@@ -1,6 +1,8 @@
 import ArticleCard from "@/components/ArticleCard";
 import HeroSection from "@/components/HeroSection";
 import MembershipTier from "@/components/MembershipTier";
+import Image from "next/image";
+import Link from "next/link";
 import { premiumArticles } from "@/lib/articles";
 
 const tiers = [
@@ -62,6 +64,36 @@ export default function HomePage() {
               price={article.price}
             />
           ))}
+        </div>
+      </section>
+
+      <section className="section video-section">
+        <div className="section-heading">
+          <div>
+            <p className="pill">Paywalled videos</p>
+            <h2>Commit the clips. Unlock the stream.</h2>
+          </div>
+          <p>Every play breakdown drops with a micro-paywall so you can consume video intelligence without a subscription.</p>
+        </div>
+        <div className="video-card">
+          <Image
+            src="https://images.unsplash.com/photo-1501527455-6a5ee0bcbc5d?auto=format&fit=crop&w=1200&q=80"
+            alt="Studio lighting and monitor"
+            width={1200}
+            height={800}
+            className="video-thumb"
+          />
+          <div>
+            <p className="pill">YouTube briefing</p>
+            <h3>Paywalled video: Transfer rumblings</h3>
+            <p>Behind-the-scenes film sessions, burner phones, and why $0.05 unlocks the next twist the studio producers aren’t publishing on the main channel.</p>
+          </div>
+          <footer>
+            <span className="muted">Base Sepolia · x402 facilitator</span>
+            <Link href="/stories/youtube-strategy-session" className="video-cta">
+              Unlock video – $0.05
+            </Link>
+          </footer>
         </div>
       </section>
 

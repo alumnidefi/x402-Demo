@@ -82,4 +82,20 @@ Coaches rate discipline, shot arcs, and poise; we share the charts they don’t 
 5. Momentum is currency; this flash report shows who is hoarding it.
 `,
   },
+  {
+    slug: "youtube-strategy-session",
+    title: "YouTube Strategy Session",
+    excerpt:
+      "A paywalled video wrap capturing the locker room tape, boardroom leaks, and the narrative the program doesn’t want you to see.",
+    date: "February 2026 // Video Briefing",
+    tag: "Video",
+    price: "$0.05",
+    body: `
+## Studio Signal
+We distill the 12-minute clip into frames, highlight the plays, and mark the moments the boosters were debating mid-month.
+
+## Narration Notes
+Each overlay is shot through the x402 facilitator so you can pay once and loop the footage from any device.
+`,
+  },
 ];
