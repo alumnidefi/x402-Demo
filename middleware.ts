@@ -9,7 +9,7 @@ if (!payTo) {
 }
 
 const network = (process.env.NETWORK ?? "base-sepolia") as Network;
-const facilitatorUrl = process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://x402.org/facilitator";
+const facilitatorUrl = (process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://x402.org/facilitator") as `https://${string}`;
 
 console.log("[x402 config] Initialized with:");
 console.log("  - payTo:", payTo);
@@ -34,7 +34,7 @@ const routes = {
   },
 };
 
-const facilitator = facilitatorUrl ? { url: facilitatorUrl } : undefined;
+const facilitator = { url: facilitatorUrl };
 
 const paywall = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
 
