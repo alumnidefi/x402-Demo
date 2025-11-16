@@ -34,21 +34,10 @@ const facilitator = facilitatorUrl ? { url: facilitatorUrl } : undefined;
 
 const paywall = paymentMiddleware(payTo, routes, facilitator, paywallConfig);
 
-const sanitizeRequest = (request: NextRequest) => {
-  const headers = new Headers(request.headers);
-  headers.delete("x-payment");
-
-  return new Proxy(request, {
-    get(target, prop, receiver) {
-      if (prop === "headers") {
-        return headers;
-      }
-      return Reflect.get(target, prop, receiver);
-    },
-  }) as NextRequest;
+export const middleware = (request: NextRequest) => {
+  request.headers.delete("x-payment");
+  return paywall(request);
 };
-
-export const middleware = (request: NextRequest) => paywall(sanitizeRequest(request));
 
 export const config = {
   matcher: ["/stories/:path*"],
