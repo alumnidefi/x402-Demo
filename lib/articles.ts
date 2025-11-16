@@ -98,4 +98,20 @@ We distill the 12-minute clip into frames, highlight the plays, and mark the mom
 Each overlay is shot through the x402 facilitator so you can pay once and loop the footage from any device.
 `,
   },
+  {
+    slug: "membership-tier",
+    title: "Membership Tier Access",
+    excerpt:
+      "Unlock the membership vault—early drops, live Q&As, and action playlists curated for premiums who pay the toll.",
+    date: "February 2026 // Member Briefing",
+    tag: "Membership",
+    price: "$0.50",
+    body: `
+## Members-Only Layer
+Pay once to receive premium briefs, live drop invites, and the backstage tapes the free page never touches.
+
+## Micro-payments, macro access
+At $0.50 per drop you own the story, the analysis, and the ability to build a recurring path into the campaign.
+`,
+  },
 ];

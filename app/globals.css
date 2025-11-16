@@ -14,12 +14,14 @@
   box-sizing: border-box;
 }
 
+.body-text {
+  color: #0d0d0d;
+}
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
 }
-
 .page-shell {
   min-height: 100vh;
   padding-bottom: 4rem;
@@ -171,7 +173,22 @@ body {
 }
 
 .article-card {
+  background: var(--garnet);
+  color: #ffffff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2rem;
   gap: 0.75rem;
+  min-height: 280px;
+}
+
+.article-card h3,
+.article-card p {
+  margin: 0;
+}
+
+.article-card .muted {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .article-tagline {

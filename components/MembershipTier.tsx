@@ -1,12 +1,15 @@
+import Link from "next/link";
+
 type MembershipTierProps = {
   name: string;
   price: string;
   tagline: string;
   perks: string[];
   accent?: boolean;
+  href?: string;
 };
 
-export default function MembershipTier({ name, price, tagline, perks, accent }: MembershipTierProps) {
+export default function MembershipTier({ name, price, tagline, perks, accent, href }: MembershipTierProps) {
   return (
     <article className={`card membership-tier ${accent ? "gold-border" : ""}`}>
       <div className="stack">
@@ -21,7 +24,9 @@ export default function MembershipTier({ name, price, tagline, perks, accent }: 
           </li>
         ))}
       </ul>
-      <button className="cta-button">Join the Ranks</button>
+      <Link href={href ?? "/stories/membership-tier"} className="cta-button">
+        Join the Ranks
+      </Link>
     </article>
   );
 }

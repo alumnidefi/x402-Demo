@@ -11,6 +11,7 @@ const tiers = [
     price: "Free",
     tagline: "Standard dispatches, newsletter, and community status.",
     perks: ["Weekly briefings", "Access to mission cryptic transcripts", "Invites to open salons"],
+    href: "/stories/membership-tier",
   },
   {
     name: "Field Marshal",
@@ -22,6 +23,7 @@ const tiers = [
       "Bonus archival audio mixes",
     ],
     accent: true,
+    href: "/stories/membership-tier",
   },
   {
     name: "Oracle",
@@ -32,6 +34,7 @@ const tiers = [
       "Mission vault access",
       "Discounts on pay-per-article drops",
     ],
+    href: "/stories/membership-tier",
   },
 ];
 
@@ -109,7 +112,7 @@ export default function HomePage() {
           <iframe
             width="100%"
             height="360"
-            src="https://www.youtube.com/embed/wPE1IOjN6us"
+            src="https://youtube.com/shorts/BkUDrsSI2vs"
             title="Sports highlight"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -141,3 +144,4 @@ export default function HomePage() {
     </>
   );
 }
+
