@@ -23,7 +23,7 @@ const paywallConfig = {
 };
 
 const routes = {
-  "/stories/:path*": {
+  "/stories/*": {
     price: "$1.00",
     network,
     config: {
