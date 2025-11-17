@@ -5,7 +5,8 @@ export type Article = {
   date: string;
   tag: string;
   badge?: string;
-  price: string;
+  displayPrice: string;
+  paymentPrice: string;
   body: string;
 };
 
@@ -18,7 +19,8 @@ export const premiumArticles: Article[] = [
     date: "November 2025 // Field Dispatch",
     tag: "Feature",
     badge: "Pay-per-article",
-    price: "$0.01",
+    displayPrice: "$0.01",
+    paymentPrice: "$0.01",
     body: `
 Smoke curls above the ridgeline as we roll in. The settlement is a patchwork of terraced bunkers, each lit by lantern flame, each watching the river corridor from the Friedmann Ridge.
 
@@ -35,13 +37,14 @@ An hour later the convoy turns. The watchman on the tower radios a terse confirm
     date: "December 2025 // Coachroom",
     tag: "Spotlight",
     badge: "Premium Drop",
-    price: "$5.00",
+    displayPrice: "$5.00",
+    paymentPrice: "$0.01",
     body: `
 Norvell's statements are measured, but the tension between staff and boosters is wide enough to rewrite headlines. We hear from insiders about late-night huddles and guard rotations that have already raised eyebrows.
 
 Five-star prospects are leaning toward other programs, yet this dispatch tracks the vault of calls and the secret workout loops keeping them in play.
 
-One more slip and the board is expected to move. This long-form report breaks down the $5 toll and why that price matters when the conference is holding its breath.
+One more slip and the board is expected to move. This long-form report breaks down why attention matters as the board waits for the next result.
 `,
   },
   {
@@ -51,7 +54,8 @@ One more slip and the board is expected to move. This long-form report breaks do
       "A rapid-fire thread of new recruits, midnight dinners, and the analytics the coaches arent sharing with the press.",
     date: "December 2025 // Recruiting Desk",
     tag: "Recruiting",
-    price: "$0.05",
+    displayPrice: "$0.05",
+    paymentPrice: "$0.01",
     body: `
 Our crew catalogues the latest offers, midnight recruit dinners, and the intangible traits the floor staff is tracking.
 
@@ -65,7 +69,8 @@ Coaches rate discipline, shot arcs, and poise; we share the charts they dont pos
       "Five short takes from across the conference: injuries, defense shifts, and the sneaky stats that have bettors talking.",
     date: "January 2026 // Headlines",
     tag: "Headlines",
-    price: "$0.05",
+    displayPrice: "$0.05",
+    paymentPrice: "$0.01",
     body: `
 1. Injuries are creeping into the second unit, forcing lineup resets.
 
@@ -85,21 +90,23 @@ Coaches rate discipline, shot arcs, and poise; we share the charts they dont pos
       "A paywalled video wrap capturing the locker room tape, boardroom leaks, and the narrative the program doesnt want you to see.",
     date: "February 2026 // Video Briefing",
     tag: "Video",
-    price: "$0.05",
+    displayPrice: "$0.05",
+    paymentPrice: "$0.01",
     body: `
 We distill the 12-minute clip into frames, highlight the plays, and mark the moments the boosters were debating mid-month.
 
-Each overlay is shot through the x402 facilitator so you can pay once and loop the footage from any device.
+Each overlay is shot through the premium facilitator so you can pay once and loop the footage from any device.
 `,
   },
   {
     slug: "membership-tier",
     title: "Membership Tier Access",
     excerpt:
-      "Unlock the membership vault—early drops, live Q&As, and action playlists curated for premiums who pay the toll.",
+      "Unlock the membership vault — early drops, live Q&As, and action playlists curated for premiums who pay the toll.",
     date: "February 2026 // Member Briefing",
     tag: "Membership",
-    price: "$0.50",
+    displayPrice: "$0.50",
+    paymentPrice: "$0.01",
     body: `
 Pay once to receive premium briefs, live drop invites, and the backstage tapes the free page never touches.
 

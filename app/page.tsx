@@ -64,7 +64,7 @@ export default function HomePage() {
               date={article.date}
               href={`/stories/${article.slug}`}
               badge={article.badge}
-              price={article.price}
+              displayPrice={article.displayPrice}
             />
           ))}
         </div>
@@ -80,7 +80,7 @@ export default function HomePage() {
         </div>
         <div className="video-card">
           <Image
-            src="https://images.unsplash.com/photo-1501527455-6a5ee0bcbc5d-auto=format&fit=crop&w=1200&q=80"
+            src="https://images.unsplash.com/photo-1501527455-6a5ee0bcbc5d?auto=format&fit=crop&w=1200&q=80"
             alt="Studio lighting and monitor"
             width={1200}
             height={800}
@@ -124,4 +124,5 @@ export default function HomePage() {
     </>
   );
 }
+
 

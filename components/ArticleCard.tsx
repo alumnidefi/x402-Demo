@@ -5,15 +5,15 @@ type ArticleCardProps = {
   date: string;
   href: string;
   badge?: string;
-  price: string;
+  displayPrice: string;
 };
 
-export default function ArticleCard({ title, excerpt, tag, date, href, badge, price }: ArticleCardProps) {
+export default function ArticleCard({ title, excerpt, tag, date, href, badge, displayPrice }: ArticleCardProps) {
   return (
     <article className="card article-card">
       <div className="article-tagline">
         <span className="badge">{tag}</span>
-        <span className="price-tag">{price}</span>
+        <span className="price-tag">{displayPrice}</span>
       </div>
       <h3>{title}</h3>
       <p className="muted">{excerpt}</p>

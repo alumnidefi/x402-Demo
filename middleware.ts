@@ -28,7 +28,7 @@ const routes = Object.fromEntries(
   premiumArticles.map((article) => [
     `/stories/${article.slug}`,
     {
-      price: article.price,
+      price: article.paymentPrice,
       network,
       config: {
         description: article.excerpt,
