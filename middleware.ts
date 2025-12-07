@@ -8,7 +8,7 @@ if (!payTo) {
   throw new Error("RESOURCE_WALLET_ADDRESS is required to initialize the x402 paywall.")
 }
 
-const network = (process.env.NETWORK ?? "base-sepolia") as Network
+const network = (process.env.NETWORK || "base") as Network
 const facilitatorUrl = (process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://www.x402.org/facilitator") as Resource
 
 const paywallConfig = {
