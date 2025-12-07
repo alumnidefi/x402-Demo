@@ -22,7 +22,7 @@ if (!process.env.CDP_API_KEY_ID || !process.env.CDP_API_KEY_SECRET) {
 
 const routes = {
   "/demo/content/market-snapshot": {
-    price: "10000",
+    price: "$0.01",
     network,
     config: {
       description: "Premium market analysis reveals key trends",
@@ -30,7 +30,7 @@ const routes = {
     },
   },
   "/demo/content/trend-recap": {
-    price: "10000",
+    price: "$0.01",
     network,
     config: {
       description: "2-minute video breakdown of latest trends",
@@ -38,7 +38,7 @@ const routes = {
     },
   },
   "/demo/content/live-event": {
-    price: "10000",
+    price: "$0.01",
     network,
     config: {
       description: "Live YouTube event with industry experts",
@@ -46,7 +46,7 @@ const routes = {
     },
   },
   "/demo/content/data-snapshot": {
-    price: "10000",
+    price: "$0.01",
     network,
     config: {
       description: "Comprehensive data analysis with insights",
@@ -54,7 +54,7 @@ const routes = {
     },
   },
   "/demo/content/research-report": {
-    price: "10000",
+    price: "$0.01",
     network,
     config: {
       description: "Full 20-page research report with analysis",
@@ -62,7 +62,7 @@ const routes = {
     },
   },
   "/demo/content/video-breakdown": {
-    price: "10000",
+    price: "$0.01",
     network,
     config: {
       description: "Complete 15-minute video analysis",
