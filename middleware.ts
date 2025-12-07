@@ -1,6 +1,6 @@
 import type { Address } from "viem"
-import { paymentMiddleware, type Network, type Resource } from "x402-next"
-import { facilitator as coinbaseFacilitator } from "@coinbase/x402"
+import { paymentMiddleware, type Network } from "x402-next"
+import { facilitator } from "@coinbase/x402"
 import { type NextRequest, NextResponse } from "next/server"
 
 const payTo = process.env.RESOURCE_WALLET_ADDRESS as Address | undefined
@@ -9,22 +9,20 @@ if (!payTo) {
   throw new Error("RESOURCE_WALLET_ADDRESS is required to initialize the x402 paywall.")
 }
 
-const network = (process.env.NETWORK || "base") as Network
-const facilitatorUrl = (process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://www.x402.org/facilitator") as Resource
+const network = process.env.NETWORK as Network
 
-if (network === "base" && (!process.env.CDP_API_KEY_ID || !process.env.CDP_API_KEY_SECRET)) {
+if (!process.env.CDP_API_KEY_ID || !process.env.CDP_API_KEY_SECRET) {
   console.error("\n⚠️  CONFIGURATION ERROR:")
-  console.error("To use Base mainnet, you need CDP API keys from cdp.coinbase.com")
-  console.error("Add these to your environment variables:")
+  console.error("CDP API keys are required. Add these to your environment variables:")
   console.error("  - CDP_API_KEY_ID")
   console.error("  - CDP_API_KEY_SECRET")
-  console.error("\nAlternatively, use Base Sepolia testnet by setting NETWORK=base-sepolia\n")
-  throw new Error("CDP API keys required for Base mainnet")
+  console.error("\nGet your keys from: https://cdp.coinbase.com\n")
+  throw new Error("CDP API keys required")
 }
 
 const routes = {
   "/demo/content/market-snapshot": {
-    price: "10000", // 0.01 in smallest units
+    price: "10000",
     network,
     config: {
       description: "Premium market analysis reveals key trends",
@@ -77,10 +75,8 @@ const paywallConfig = {
   appName: "AlumniDeFi Sports Demo",
   appLogo: "/icon.svg",
   sessionTokenEndpoint: "/api/x402/session-token",
-  cdpClientKey: "alumnidefi-sports-demo",
+  cdpClientKey: "vTNwiI2OF8M5CpWwPnYBY5bif5bFAfKX",
 }
-
-const facilitator = coinbaseFacilitator
 
 const paywallHandler = paymentMiddleware(payTo, routes, facilitator, paywallConfig)
 
@@ -92,48 +88,29 @@ function resolveContentId(pathname: string) {
 }
 
 export async function middleware(request: NextRequest) {
-  try {
-    const contentId = resolveContentId(request.nextUrl.pathname)
+  const contentId = resolveContentId(request.nextUrl.pathname)
 
-    if (contentId) {
-      const paidReceipt = request.cookies.get(`${PAID_COOKIE_PREFIX}${contentId}`)?.value
-      if (paidReceipt) {
-        return NextResponse.next()
-      }
+  if (contentId) {
+    const paidReceipt = request.cookies.get(`${PAID_COOKIE_PREFIX}${contentId}`)?.value
+    if (paidReceipt) {
+      return NextResponse.next()
     }
-
-    const response = await paywallHandler(request)
-
-    if (contentId && response.headers.get("x-payment-response") && response.status === 200) {
-      response.cookies.set({
-        name: `${PAID_COOKIE_PREFIX}${contentId}`,
-        value: response.headers.get("x-payment-response") ?? "",
-        path: `/demo/content/${contentId}`,
-        httpOnly: true,
-        sameSite: "lax",
-        maxAge: 60 * 60,
-      })
-    }
-
-    return response
-  } catch (error) {
-    console.error("[v0] Middleware error:", error)
-    console.error("[v0] Error stack:", error instanceof Error ? error.stack : "No stack trace")
-
-    // Return a proper error response instead of crashing
-    return new NextResponse(
-      JSON.stringify({
-        error: "Payment system temporarily unavailable",
-        message: error instanceof Error ? error.message : "Unknown error",
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-    )
   }
+
+  const response = await paywallHandler(request)
+
+  if (contentId && response.headers.get("x-payment-response") && response.status === 200) {
+    response.cookies.set({
+      name: `${PAID_COOKIE_PREFIX}${contentId}`,
+      value: response.headers.get("x-payment-response") ?? "",
+      path: `/demo/content/${contentId}`,
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 60 * 60,
+    })
+  }
+
+  return response
 }
 
 export const config = {
