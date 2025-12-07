@@ -1,41 +1,47 @@
-import "./globals.css";
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter, JetBrains_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
 
-import { Space_Grotesk } from "next/font/google";
-import type { Metadata } from "next";
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-});
+const inter = Inter({ subsets: ["latin"] })
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "The Battle's End — Premium Dispatches",
+  title: "AlumniDeFi - Modern Payments Infrastructure for Digital Media",
   description:
-    "A Battle's End inspired paywall for recruiting, basketball, and investigative dispatches. Explore tiered membership and pay-per-article drops.",
-  keywords: ["paywall", "battle", "the battles end", "membership", "premium media"],
-  openGraph: {
-    title: "The Battle's End Premium Dispatches",
-    description:
-      "Pay for premium storytelling, membership tiers, and curated paywall drops inspired by Battle's End.",
-    url: "https://thebattlesend-demo.vercel.app",
-    siteName: "The Battle's End Premium Dispatches",
-    locale: "en_US",
-    type: "website",
+    "Replace legacy billing with zero-fee, zero-chargeback payment architecture. Built for digital media companies.",
+  generator: "v0.app",
+  icons: {
+    icon: [
+      {
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: "/apple-icon.png",
   },
-};
+}
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  colorScheme: "light",
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
-    <html lang="en" className={spaceGrotesk.variable}>
-      <body>
-        <div className="page-shell">{children}</div>
+    <html lang="en">
+      <body className={`${inter.className} font-sans antialiased`}>
+        {children}
+        <Analytics />
       </body>
     </html>
-  );
+  )
 }
