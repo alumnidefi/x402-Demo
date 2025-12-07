@@ -12,11 +12,14 @@ if (!payTo) {
 const network = (process.env.NETWORK || "base") as Network
 const facilitatorUrl = (process.env.NEXT_PUBLIC_FACILITATOR_URL ?? "https://www.x402.org/facilitator") as Resource
 
-const paywallConfig = {
-  appName: "AlumniDeFi Sports Demo",
-  appLogo: "/icon.svg",
-  sessionTokenEndpoint: "/api/x402/session-token",
-  cdpClientKey: "alumnidefi-sports-demo",
+if (network === "base" && (!process.env.CDP_API_KEY_ID || !process.env.CDP_API_KEY_SECRET)) {
+  console.error("\n⚠️  CONFIGURATION ERROR:")
+  console.error("To use Base mainnet, you need CDP API keys from cdp.coinbase.com")
+  console.error("Add these to your environment variables:")
+  console.error("  - CDP_API_KEY_ID")
+  console.error("  - CDP_API_KEY_SECRET")
+  console.error("\nAlternatively, use Base Sepolia testnet by setting NETWORK=base-sepolia\n")
+  throw new Error("CDP API keys required for Base mainnet")
 }
 
 const routes = {
@@ -68,6 +71,13 @@ const routes = {
       mimeType: "text/html",
     },
   },
+}
+
+const paywallConfig = {
+  appName: "AlumniDeFi Sports Demo",
+  appLogo: "/icon.svg",
+  sessionTokenEndpoint: "/api/x402/session-token",
+  cdpClientKey: "alumnidefi-sports-demo",
 }
 
 const facilitator = coinbaseFacilitator
