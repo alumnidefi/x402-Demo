@@ -1,5 +1,6 @@
 import type { Address } from "viem"
 import { paymentMiddleware, type Network, type Resource } from "x402-next"
+import { facilitator as coinbaseFacilitator } from "@coinbase/x402"
 import { type NextRequest, NextResponse } from "next/server"
 
 const payTo = process.env.RESOURCE_WALLET_ADDRESS as Address | undefined
@@ -69,7 +70,7 @@ const routes = {
   },
 }
 
-const facilitator = { url: facilitatorUrl }
+const facilitator = coinbaseFacilitator
 
 const paywallHandler = paymentMiddleware(payTo, routes, facilitator, paywallConfig)
 
